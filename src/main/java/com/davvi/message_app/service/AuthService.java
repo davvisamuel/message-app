@@ -1,6 +1,7 @@
 package com.davvi.message_app.service;
 
 import com.davvi.message_app.domain.User;
+import com.davvi.message_app.domain.UserRole;
 import com.davvi.message_app.exception.UsernameAlreadyExists;
 import com.davvi.message_app.repository.UserRepository;
 import com.davvi.message_app.security.TokenService;
@@ -26,7 +27,7 @@ public class AuthService {
             throw new UsernameAlreadyExists("Esse nome de usuário não está disponível!");
         }
 
-        user.setRole("USER");
+        user.setRole(UserRole.ROLE_USER);
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 

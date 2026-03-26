@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfiguration {
 
-    private static final String[] WHITE_LIST = {"/v1/auth/**", "/h2-console/**"};
+    private static final String[] WHITE_LIST = {"/v1/auth/**", "/h2-console/**", "/**"};
     private final AuthenticationFilter authenticationFilter;
 
     @Bean

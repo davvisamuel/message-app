@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MessageApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.3.0/bundles/stomp.umd.min.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <h1>MessageApp Test</h1>
+    <input id="connect" type="button" onclick="connect()" value="Connect">
+    <input id="disconnect" type="button" onclick="disconnect()" value="Disconnect">
+
+    <input id="token" type="text" placeholder="Coloque o token JWT aqui">
+    <input id="username" type="text" placeholder="Nome do usuário de destino">
+    <input id="message" type="text" placeholder="A mensagem que quer enviar">
+
+    <input id="sendMessage" type="button" onclick="sendMessage()" value="Send Message">
+    <input id="clearMessages" type="button" onclick="clearMessages(messages)" value="Clear Message">
+    <p>Messages: <br/> <span id="messages"></span></p>
+</body>
+</html>
