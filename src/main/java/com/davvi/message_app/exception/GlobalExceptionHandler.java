@@ -13,4 +13,18 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(defaultErrorMessage);
     }
+
+    @ExceptionHandler(FriendRequestAlreadyExists.class)
+    public ResponseEntity<DefaultErrorMessage> handleFriendRequestAlreadyExists(FriendRequestAlreadyExists e) {
+        var defaultErrorMessage = new DefaultErrorMessage(e.getStatusCode().value(), e.getMessage());
+
+        return ResponseEntity.status(e.getStatusCode()).body(defaultErrorMessage);
+    }
+
+    @ExceptionHandler(UserNotFound.class)
+    public ResponseEntity<DefaultErrorMessage> handleUserNotFound(UserNotFound e) {
+        var defaultErrorMessage = new DefaultErrorMessage(e.getStatusCode().value(), e.getMessage());
+
+        return ResponseEntity.status(e.getStatusCode()).body(defaultErrorMessage);
+    }
 }

@@ -11,12 +11,13 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
+@Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-@Table(name = "user")
+@EqualsAndHashCode
 public class User implements UserDetails {
 
     @Id

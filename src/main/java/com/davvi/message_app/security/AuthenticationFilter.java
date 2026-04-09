@@ -28,7 +28,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
         if (optionalToken.isPresent()) {
             var subjectId = tokenService.validateToken(optionalToken.get());
-            var user = userRepository.findById(Long.valueOf(subjectId)).orElseThrow();
+            var user = userRepository.findById(Long.parseLong(subjectId)).orElseThrow();
             var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
@@ -37,7 +37,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     }
 
     public Optional<String> recoverToken(HttpServletRequest request) {
-        var authenticationHeader = request.getHeader("Authentication");
+        var authenticationHeader = request.getHeader("Authorization");
 
         if (authenticationHeader == null) return Optional.empty();
 
