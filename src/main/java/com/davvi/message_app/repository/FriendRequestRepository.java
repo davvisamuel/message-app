@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface FriendRequestRepository extends JpaRepository<FriendRequest, Long> {
 
     @Query("SELECT fr FROM FriendRequest fr WHERE (fr.sender = ?1 and fr.recipient = ?2) OR (fr.sender = ?2 and fr.recipient = ?1)")
-    Optional<FriendRequest> findBySenderAndRecipient(User sender, User recipient);
+    Optional<FriendRequest> findFriendRequestBetweenUsers(User firstUser, User secondUser);
 
     Page<FriendRequest> findAllByRecipient(User recipient, Pageable pageable);
 

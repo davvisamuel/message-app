@@ -42,4 +42,12 @@ public class FriendController {
 
         return ResponseEntity.ok(friendGetResponsePage);
     }
+
+    @DeleteMapping("/{username}")
+    public ResponseEntity<Void> deleteFriendRequest(@AuthenticationPrincipal User currentUser, @PathVariable String username) {
+
+        friendService.deleteFriendRequest(currentUser, username);
+
+        return ResponseEntity.noContent().build();
+    }
 }

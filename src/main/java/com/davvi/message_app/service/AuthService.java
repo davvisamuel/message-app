@@ -2,7 +2,7 @@ package com.davvi.message_app.service;
 
 import com.davvi.message_app.domain.User;
 import com.davvi.message_app.domain.UserRole;
-import com.davvi.message_app.exception.UsernameAlreadyExists;
+import com.davvi.message_app.exception.UsernameAlreadyExistsException;
 import com.davvi.message_app.repository.UserRepository;
 import com.davvi.message_app.security.TokenService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class AuthService {
     @Transactional
     public User save(User user) {
         if (userRepository.existsByUsername(user.getUsername())) {
-            throw new UsernameAlreadyExists("Esse nome de usuário não está disponível!");
+            throw new UsernameAlreadyExistsException("Esse nome de usuário não está disponível!");
         }
 
         user.setRole(UserRole.ROLE_USER);

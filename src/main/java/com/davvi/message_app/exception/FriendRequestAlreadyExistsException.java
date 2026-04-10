@@ -3,9 +3,9 @@ package com.davvi.message_app.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-public class FriendRequestAlreadyExists extends ResponseStatusException {
+public class FriendRequestAlreadyExistsException extends ResponseStatusException {
 
-    public FriendRequestAlreadyExists(String message) {
+    public FriendRequestAlreadyExistsException(String message) {
         super(HttpStatus.CONFLICT, message);
     }
 }
